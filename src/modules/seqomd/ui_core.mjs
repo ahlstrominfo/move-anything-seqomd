@@ -80,7 +80,7 @@ function onViewTransition() {
 
 /* ============ Lifecycle ============ */
 
-globalThis.init = function() {
+export function init() {
     console.log("SEQOMD starting...");
 
     /* Initialize sets - migrate from legacy format if needed */
@@ -114,7 +114,7 @@ let pendingPlayheadUpdate = null;  /* { oldStep, newStep } or null */
 let pendingPadUpdate = false;
 let pendingTransposeStepUpdate = false;
 
-globalThis.tick = function() {
+export function tick() {
     ledTickCounter++;
     drawUI();
 
@@ -230,7 +230,7 @@ globalThis.tick = function() {
 
 /* ============ MIDI Input ============ */
 
-globalThis.onMidiMessageInternal = function(data) {
+export function onMidiMessageInternal(data) {
     if (isNoiseMessage(data)) return;
 
     const isNote = data[0] === MidiNoteOn || data[0] === MidiNoteOff;
@@ -349,4 +349,4 @@ globalThis.onMidiMessageInternal = function(data) {
     }
 };
 
-globalThis.onMidiMessageExternal = function(data) {};
+export function onMidiMessageExternal(data) {};
