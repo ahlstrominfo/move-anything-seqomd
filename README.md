@@ -43,7 +43,9 @@ curl -L https://raw.githubusercontent.com/ahlstrominfo/move-anything-seqomd/main
 
 ## Building
 
-See [BUILDING.md](BUILDING.md) for build instructions.
+See [BUILDING.md](BUILDING.md) for build instructions, including:
+- Docker build (recommended)
+- [Native macOS/Windows builds](docs/BUILDING-NATIVE.md) without Docker
 
 ## Documentation
 

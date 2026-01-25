@@ -2,7 +2,7 @@
 
 Move Anything must be cross-compiled for the Ableton Move's ARM64 processor (aarch64 Linux).
 
-## Quick Start
+## Quick Start (Docker)
 
 ```bash
 ./scripts/build.sh
@@ -12,9 +12,19 @@ This builds everything and creates `move-anything.tar.gz`. The build script auto
 
 Requirements: Docker Desktop (macOS/Windows) or Docker Engine (Linux)
 
-## Manual Build (without Docker)
+## Building Without Docker
 
-### Ubuntu/Debian
+For native builds without Docker, see **[Building Without Docker](docs/BUILDING-NATIVE.md)** for detailed instructions.
+
+### macOS Quick Start
+
+```bash
+./scripts/build-macos.sh
+```
+
+This script installs the cross-compiler toolchain via Homebrew and builds the project.
+
+### Linux (Ubuntu/Debian)
 
 ```bash
 sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu make
@@ -29,19 +39,9 @@ CROSS_PREFIX=aarch64-linux-gnu- ./scripts/build.sh
 ./scripts/package.sh
 ```
 
-### macOS (via Homebrew)
+### Windows
 
-```bash
-brew tap messense/macos-cross-toolchains
-brew install aarch64-unknown-linux-gnu
-
-cd libs/quickjs/quickjs-2025-04-26
-CC=aarch64-unknown-linux-gnu-gcc make libquickjs.a
-cd ../../..
-
-CROSS_PREFIX=aarch64-unknown-linux-gnu- ./scripts/build.sh
-./scripts/package.sh
-```
+Use WSL2 with Ubuntu and follow the Linux instructions. See [Building Without Docker](docs/BUILDING-NATIVE.md) for details.
 
 ## Deployment
 
